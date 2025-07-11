@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\User\Desktop\Github\dist</_PublishTargetUrl>
+    <History>True|2025-07-10T18:01:33.6897682Z;True|2025-07-10T19:32:20.1997783+03:00;True|2025-07-10T01:37:33.5992586+03:00;True|2025-07-10T00:07:09.3532857+03:00;True|2025-07-09T23:47:49.9244992+03:00;True|2025-07-09T23:42:30.7665572+03:00;True|2025-07-09T23:37:44.9693264+03:00;True|2025-07-09T23:25:10.2808173+03:00;True|2025-07-09T23:06:32.6745918+03:00;True|2025-07-09T22:27:40.1032463+03:00;True|2025-07-09T22:12:29.7126029+03:00;True|2025-07-09T17:03:57.1810723+03:00;True|2025-07-09T17:01:49.5348675+03:00;False|2025-07-09T17:00:24.5800631+03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

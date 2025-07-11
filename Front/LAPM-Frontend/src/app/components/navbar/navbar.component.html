@@ -1,0 +1,40 @@
+<nav class="bg-white/75 backdrop-blur-lg shadow-sm sticky top-0 z-50 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <!-- Logo -->
+          <div class="flex-shrink-0 flex items-center">
+            <svg class="h-8 w-auto text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" />
+            </svg>
+            <span class="text-gray-800 font-bold text-xl ml-2">LAPM Portal</span>
+          </div>
+          <!-- Links -->
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-1">
+              <a routerLink="/request" routerLinkActive="bg-indigo-50 text-indigo-700" [routerLinkActiveOptions]="{exact: true}"
+                class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                New Request
+              </a>
+              <a routerLink="/my-requests" routerLinkActive="bg-indigo-50 text-indigo-700"
+                class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                My Requests
+              </a>
+              <ng-container *ngIf="(authService.userSession$ | async)?.isAdmin">
+                <a routerLink="/admin" routerLinkActive="bg-indigo-50 text-indigo-700"
+                  class="text-gray-500 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                  Admin Dashboard
+                </a>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <!-- User Info -->
+        <div class="hidden md:block">
+          <div class="ml-4 flex items-center md:ml-6" *ngIf="authService.userSession$ | async as session">
+            <span class="text-gray-600 text-sm">Welcome, <span class="font-semibold text-indigo-600">{{ session.username }}</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>

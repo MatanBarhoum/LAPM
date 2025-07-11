@@ -1,0 +1,7 @@
+{
+    "/api": {
+      "target": "https://control.lab.local",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }

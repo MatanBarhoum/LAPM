@@ -4,7 +4,7 @@ LAPM Portal is a secure, web-based solution for managing temporary, just-in-time
 
 Users can request temporary elevation on a specific machine, which is then sent to a designated group of administrators for approval. Upon approval, a lightweight agent on the workstation automatically grants the access for the specified duration and revokes it upon expiration.
 
-![Admin Dashboard Screenshot](https://placehold.co/800x450/6366f1/ffffff?text=Admin+Dashboard+Screenshot)
+![Admin Dashboard Screenshot](https://i.ibb.co/FLLdD9Jc/2025-07-13-144838.png)
 
 ---
 

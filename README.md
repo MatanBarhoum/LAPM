@@ -10,7 +10,7 @@ Users can request temporary elevation on a specific machine, which is then sent 
 
 ## ✨ Features
 
-* **Self-Service Portal:** An intuitive Angular frontend allows any authorized domain user to request temporary local admin rights.
+* **Self-Service Portal:** An intuitive Angular frontend that allows authorized domain users to request temporary local admin rights.
 * **Real-time Validation:** The request form validates computer and user names against Active Directory in real-time.
 * **Approval Workflow:** Designated administrators are notified and can approve or reject requests through a secure admin dashboard.
 * **Time-Based Access:** Privileges are granted only for the approved duration and are automatically revoked.

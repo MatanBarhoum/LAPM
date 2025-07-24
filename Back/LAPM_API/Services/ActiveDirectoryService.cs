@@ -17,8 +17,6 @@ namespace LAPM_API.Services
         public ActiveDirectoryService(IConfiguration configuration)
         {
             _configuration = configuration;
-            // This context will use the credentials of the application pool's service account
-            // to connect to Active Directory. Ensure this account has read permissions.
             _principalContext = new PrincipalContext(ContextType.Domain);
         }
 

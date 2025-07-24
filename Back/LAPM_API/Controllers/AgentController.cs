@@ -18,19 +18,13 @@ namespace LAPM_API.Controllers
             _context = context;
         }
 
-        /// <summary>
-        /// Provides the complete list of users that should have local admin rights RIGHT NOW.
-        /// This is a more robust, self-healing approach for the agent.
-        /// It handles new grants, expirations, and revocations automatically.
-        /// </summary>
         [HttpGet("state/{computerName}")]
-        [AllowAnonymous] // NOTE: For production, this should be secured with a client cert or pre-shared key.
+        [AllowAnonymous]
         public async Task<IActionResult> GetRequiredAdminState(string computerName)
         {
             var now = DateTime.UtcNow;
-            var computerNameUpper = computerName.ToUpper(); // Prepare for case-insensitive comparison
+            var computerNameUpper = computerName.ToUpper(); 
 
-            // --- FIX: Replaced .Equals() with .ToUpper() for EF Core compatibility ---
             var validUsers = await _context.AccessRequests
                 .Where(r => r.ComputerName.ToUpper() == computerNameUpper
                            && (r.Status == RequestStatus.Approved || r.Status == RequestStatus.Applied)
@@ -39,7 +33,6 @@ namespace LAPM_API.Controllers
                 .Distinct()
                 .ToListAsync();
 
-            // After getting the state, mark any newly 'Approved' requests as 'Applied'.
             var requestsToUpdate = await _context.AccessRequests
                 .Where(r => r.ComputerName.ToUpper() == computerNameUpper
                            && r.Status == RequestStatus.Approved

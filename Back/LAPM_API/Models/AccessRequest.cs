@@ -6,7 +6,7 @@
         Approved,
         Rejected,
         Applied,
-        Expired, // <-- NEW: Status for when an admin manually revokes access.
+        Expired, 
         Revoked,
         Error
     }

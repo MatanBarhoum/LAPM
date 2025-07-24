@@ -11,7 +11,7 @@ namespace LAPM_API.Controllers
 {
     [ApiController]
     [Route("api/requests")]
-    [Authorize] // All users must be in LAPM_Users
+    [Authorize] 
     public class RequestsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -25,10 +25,6 @@ namespace LAPM_API.Controllers
             _configuration = configuration;
         }
 
-        // --- NEW ADMIN ENDPOINT ---
-        /// <summary>
-        /// Gets a list of all requests in the system. Admins only.
-        /// </summary>
         [HttpGet]
         [Authorize(Policy = "IsAdmin")]
         public async Task<ActionResult<IEnumerable<AccessRequest>>> GetAllRequests()
@@ -38,7 +34,7 @@ namespace LAPM_API.Controllers
                                  .ToListAsync();
         }
 
-        // POST: api/requests
+
         [HttpPost]
         public async Task<IActionResult> CreateRequest([FromBody] AccessRequestDto requestDto)
         {
@@ -66,7 +62,6 @@ namespace LAPM_API.Controllers
             return CreatedAtAction(nameof(GetRequestById), new { id = accessRequest.Id }, accessRequest);
         }
 
-        // GET: api/requests/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<AccessRequest>> GetRequestById(int id)
         {
@@ -83,7 +78,6 @@ namespace LAPM_API.Controllers
             return Ok(request);
         }
 
-        // GET: api/requests/mine
         [HttpGet("mine")]
         public async Task<ActionResult<IEnumerable<AccessRequest>>> GetMyRequests()
         {
@@ -101,7 +95,6 @@ namespace LAPM_API.Controllers
             return Ok(requests);
         }
 
-        // GET: api/requests/pending
         [HttpGet("pending")]
         [Authorize(Policy = "IsAdmin")]
         public async Task<ActionResult<IEnumerable<AccessRequest>>> GetPendingRequests()
@@ -112,7 +105,6 @@ namespace LAPM_API.Controllers
                                  .ToListAsync();
         }
 
-        // PUT: api/requests/{id}/approve
         [HttpPut("{id}/approve")]
         [Authorize(Policy = "IsAdmin")]
         public async Task<IActionResult> ApproveRequest(int id)
@@ -131,7 +123,6 @@ namespace LAPM_API.Controllers
             return NoContent();
         }
 
-        // PUT: api/requests/{id}/reject
         [HttpPut("{id}/reject")]
         [Authorize(Policy = "IsAdmin")]
         public async Task<IActionResult> RejectRequest(int id)
@@ -148,8 +139,6 @@ namespace LAPM_API.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
-
-        // --- MANAGEMENT ENDPOINTS ---
 
         [HttpPut("{id}/extend")]
         [Authorize(Policy = "IsAdmin")]
@@ -196,7 +185,6 @@ namespace LAPM_API.Controllers
         }
     }
 
-    // DTO for creating a request from the frontend
     public class AccessRequestDto
     {
         public string ComputerName { get; set; }

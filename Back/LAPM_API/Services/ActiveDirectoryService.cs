@@ -31,7 +31,6 @@ namespace LAPM_API.Services
             }
             catch
             {
-                // TODO: Log this exception in a real application
                 return false;
             }
         }

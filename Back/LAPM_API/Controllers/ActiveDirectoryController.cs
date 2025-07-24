@@ -6,7 +6,7 @@ namespace LAPM_API.Controllers
 {
     [ApiController]
     [Route("api/ad")]
-    [Authorize] // Only members of LAPM_Users can query AD based on the fallback policy
+    [Authorize] 
     public class ActiveDirectoryController : ControllerBase
     {
         private readonly IActiveDirectoryService _adService;

@@ -41,7 +41,6 @@ namespace LAPM_API.Services
 
             try
             {
-                // Use SamAccountName for lookups as it's typically what users will enter.
                 var user = UserPrincipal.FindByIdentity(_principalContext, IdentityType.SamAccountName, userName);
                 return user != null;
             }
@@ -63,7 +62,6 @@ namespace LAPM_API.Services
             }
             catch
             {
-                // TODO: Log this exception in a real application
                 return string.Empty;
             }
         }

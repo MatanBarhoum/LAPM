@@ -12,7 +12,6 @@ import { BehaviorSubject, switchMap } from 'rxjs';
 })
 export class AdminDashboardComponent implements OnInit {
   
-  // A subject to trigger a refresh of the request list
   private refreshSubject = new BehaviorSubject<void>(undefined);
   
   // Observable stream of all requests, re-fetched whenever refreshSubject emits
@@ -29,8 +28,6 @@ export class AdminDashboardComponent implements OnInit {
   constructor(private adminService: AdminService) {}
 
   ngOnInit(): void {}
-
-  // --- Action Methods ---
 
   approve(id: number): void {
     this.adminService.approveRequest(id).subscribe(() => this.refreshList());

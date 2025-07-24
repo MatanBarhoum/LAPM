@@ -4,7 +4,7 @@ import { map, take } from 'rxjs';
 import { AuthService } from './core/services/auth.service';
 import { RequestFormComponent } from './components/request-form/request-form.component';
 import { MyRequestsComponent } from './components/my-requests/my-requests.component';
-import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component'; // <-- IMPORT
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 
 export const adminGuard: CanActivateFn = () => {
   const authService = inject(AuthService);
@@ -20,9 +20,8 @@ export const routes: Routes = [
   { path: 'my-requests', component: MyRequestsComponent },
   { 
     path: 'admin', 
-    component: AdminDashboardComponent, // <-- Points directly to the component
+    component: AdminDashboardComponent, 
     canActivate: [adminGuard]
-    // No more child routes needed
   },
   { path: '', redirectTo: '/request', pathMatch: 'full' },
   { path: '**', redirectTo: '/request' }

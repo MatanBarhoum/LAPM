@@ -17,7 +17,6 @@ namespace LAPM_API.Services
         {
             _logger.LogInformation("Expired Request Cleanup Service is starting.");
 
-            // Run the task every hour. This can be configured.
             using var timer = new PeriodicTimer(TimeSpan.FromHours(1));
 
             while (await timer.WaitForNextTickAsync(stoppingToken))
@@ -30,8 +29,6 @@ namespace LAPM_API.Services
         {
             _logger.LogInformation("Expired Request Cleanup Service is running.");
 
-            // We need to create a new scope to resolve scoped services like DbContext
-            // in a singleton background service.
             using (var scope = _serviceProvider.CreateScope())
             {
                 var dbContext = scope.ServiceProvider.GetRequiredService<Data.ApplicationDbContext>();

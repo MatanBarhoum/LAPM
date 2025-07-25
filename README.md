@@ -108,9 +108,3 @@ Follow these steps to deploy the LAPM Portal in your own environment.
 ## 📄 License
 
 This project is licensed under the **MIT License**. See the `LICENSE` file for details.
-
----
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/your-username/your-repo/issues).

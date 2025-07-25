@@ -1,6 +1,6 @@
-# LAPM Portal: Temporary Local Admin Access Management
+# LAPM: Temporary Local Admin Access Management
 
-LAPM Portal is a secure, web-based solution for managing temporary, just-in-time (JIT) local administrator access on Windows workstations within an Active Directory environment. It replaces the insecure practice of granting permanent local admin rights with an auditable, approval-based workflow.
+LAPM is a secure, web-based solution for managing temporary, just-in-time (JIT) local administrator access on Windows workstations within an Active Directory environment. It replaces the insecure practice of granting permanent local admin rights with an auditable, approval-based workflow.
 
 Users can request temporary elevation on a specific machine, which is then sent to a designated group of administrators for approval. Upon approval, a lightweight agent on the workstation automatically grants the access for the specified duration and revokes it upon expiration.
 
